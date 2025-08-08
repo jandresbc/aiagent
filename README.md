@@ -22,7 +22,7 @@ Un agente de IA simple, creado con **LangChain** y **OpenAI**, que puede respond
 2. Instala las librerías necesarias:
 
     ```bash
-    pip install langchain langchain_openai python-dotenv
+    pip install -r requirements.txt
     ```
 
 3. Crea un archivo `.env` en la raíz del proyecto y añade tu clave de API de OpenAI:
