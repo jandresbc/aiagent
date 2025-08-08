@@ -12,7 +12,7 @@ LangChain es una biblioteca de Python diseñada para facilitar la creación de a
 
 Un agente de IA simple, creado con LangChain y OpenAI, que puede responder preguntas sobre el clima actual en ubicaciones específicas.
 
-** Uso de herramientas**: Demuestra cómo un agente puede usar funciones de Python (herramientas) para obtener información externa, como datos meteorológicos.
+**Uso de herramientas**: Demuestra cómo un agente puede usar funciones de Python (herramientas) para obtener información externa, como datos meteorológicos.
 Nota: En este ejemplo, la función de clima utiliza datos simulados y no consulta una API real.
 
 ---
@@ -80,4 +80,4 @@ El agente responderá a la pregunta predefinida en el código. Puedes modificar 
 agent_executor.invoke({"input": "¿Cuál es el clima en Bogotá?"})
 ```
 
-** Advertencia**: La respuesta sobre el clima es generada a partir de datos simulados definidos en el código. Si deseas obtener datos reales, deberás integrar una API de clima como OpenWeatherMap o Google Weather.
+**Advertencia**: La respuesta sobre el clima es generada a partir de datos simulados definidos en el código. Si deseas obtener datos reales, deberás integrar una API de clima como OpenWeatherMap o Google Weather.
