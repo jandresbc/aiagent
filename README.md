@@ -2,6 +2,16 @@
 
 Un agente de IA simple, creado con **LangChain** y **OpenAI**, que puede responder preguntas sobre el clima actual en ubicaciones específicas.
 
+**¿Qué es LangChain?**
+LangChain es una biblioteca de Python diseñada para facilitar la creación de aplicaciones que utilizan modelos de lenguaje grande (LLM) como GPT. Permite integrar LLMs con herramientas externas, cadenas de procesamiento, agentes inteligentes y flujos conversacionales. Sus principales usos incluyen:
+
+- Construcción de chatbots avanzados y asistentes virtuales.
+- Automatización de tareas mediante agentes que combinan LLMs y funciones de Python.
+- Integración de modelos de lenguaje con APIs, bases de datos y sistemas externos.
+- Orquestación de flujos conversacionales y toma de decisiones basada en lenguaje natural.
+
+Un agente de IA simple, creado con LangChain y OpenAI, que puede responder preguntas sobre el clima actual en ubicaciones específicas.
+
 ---
 
 ## Características
@@ -18,7 +28,7 @@ Un agente de IA simple, creado con **LangChain** y **OpenAI**, que puede respond
 ---
 
 ## Instalación
-1. Clona este repositorio(https://github.com/jandresbc/aiagent) o crea los archivos `agent.py` y `.env`.
+1. Clona este repositorio(https://github.com/jandresbc/aiagent).
 2. Instala las librerías necesarias:
 
     ```bash
@@ -41,3 +51,7 @@ python agent.py
 ```
 
 El agente responderá a la pregunta predefinida en el código. Puedes modificar la línea `agent_executor.invoke(...)` para hacerle otras preguntas.
+
+```ini
+agent_executor.invoke({"input": "¿Cuál es el clima en Bogotá?"})
+```
