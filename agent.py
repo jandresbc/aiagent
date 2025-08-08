@@ -3,6 +3,8 @@
 import os
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
+from langchain_anthropic import ChatAnthropic
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.agents import AgentExecutor, create_tool_calling_agent
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.tools import tool
@@ -10,8 +12,26 @@ from langchain_core.tools import tool
 # Cargar las variables de entorno
 load_dotenv()
 
-# Inicializar el modelo de lenguaje
-llm = ChatOpenAI(temperature=0)
+def get_llm(model_name):
+    """Selecciona y devuelve el modelo de lenguaje basado en el nombre proporcionado."""
+    
+    if model_name == "openai":
+        # OpenAI
+        llm_openai = ChatOpenAI(temperature=0)
+        
+        return llm_openai
+    elif model_name == "claude":
+        # Claude (Anthropic)
+        llm_claude = ChatAnthropic(temperature=0, model='claude-2.1')
+        
+        return llm_claude
+    elif model_name == "gemini":
+        # Gemini (Google)
+        llm_gemini = ChatGoogleGenerativeAI(temperature=0,model="gemini-2.5-flash")
+        
+        return llm_gemini
+    else:
+        raise ValueError("Modelo no soportado")
 
 # Definir una herramienta (una función que el agente puede usar)
 @tool
@@ -33,6 +53,9 @@ prompt = ChatPromptTemplate.from_messages([
     ("placeholder", "{agent_scratchpad}"),
     ("human", "{input}"),
 ])
+
+selected_model = "openai"  # Puede ser "openai", "claude" o "gemini"
+llm = get_llm(selected_model)
 
 # Crear el agente
 agent = create_tool_calling_agent(llm, tools, prompt)
